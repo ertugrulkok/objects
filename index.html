@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1 class="title_text">Dairy product information received at the facility on a company basis</h1>
+      <div class="wrapper">
+
+        <div class="second_block">
+                  <div class="third_block">
+            <label for="user">Company Name</label>
+            <p class="rand">DR OETKER</p>
+          </div>
+          <div class="third_block">
+            <label for="user">Price</label>
+            <p class="rand" id="Oetker_price">Oetker_price</p>
+          </div>
+          <div class="third_block">
+            <label for="user">Daily Amount</label>
+            <p class="rand"id=Oetker_QA>Oetker_QA</p>
+          </div>
+          <div class="third_block">
+            <label for="user">Quantity Measure</label>
+            <p class="rand" id="Oetker_QM">Oetker_QM</p>
+          </div>
+          <div class="third_block">
+            <label for="user">Weekly Consumption</label>
+            <p class="rand" id="Oetker_DC">Oetker_DC</p>
+          </div>
+          <div class="third_block">
+            <label for="user">Montly Price</label>
+            <p class="rand" id="Oetker_Con">Oetker_Con</p>
+          </div>
+        </div>
+        <div class="second_block">
+          <div class="third_block">
+            <p class="rand">NESTLE</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="Nest_price">Nest_price</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="Nest_QA">Nest_QA</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="Nest_QM">Nest_QM</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="Nest_DC">Nest_DC</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="Nest_Con">Nest_Con</p>
+          </div>
+        </div>
+        <div class="second_block">
+          <div class="third_block">
+            <p class="rand">JA</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="JA_pr">JA_pr</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="JA_QA">JA_QA</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="JA_QM">JA_QM</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="JA_DC">JA_DC</p>
+          </div>
+          <div class="third_block">
+            <p class="rand" id="JA_Con">JA_Con</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const Milk = [
+        {
+          brandName: "Nestle",
+          price: "8",
+          dailyAmount: 100,
+          quantityMeasure: "Lt.",
+          weeklyConsumption: function () {
+          return this.dailyAmount * 7;
+          },
+          monthlyPrice: function () {
+          return this.weeklyConsumption() * this.price;
+          },
+          
+        },
+        {
+          price: "3",
+          brandName: "Dr Oetker",
+          dailyAmount: 500,
+          quantityMeasure: "Lt",
+          weeklyConsumption: "daily",
+          weeklyConsumption: function () {
+          return this.dailyAmount * 12;
+          },
+          monthlyPrice: function () {
+          return this.weeklyConsumption() * this.price;
+          },
+        },
+
+        {
+          price: "4",
+          brandName: "Ja",
+          dailyAmount: 200,
+          quantityMeasure: "Lt",
+          weeklyConsumption: "daily.",
+          weeklyConsumption: function () {
+          return this.dailyAmount * 12;
+          },
+          monthlyPrice: function () {
+          return this.weeklyConsumption() * this.price;
+          },
+        },
+      ];
+
+      
+
+      for (i = 0; i < Milk.length; i++) {
+           
+        document.getElementById("Oetker_QM").innerHTML = Milk[0].quantityMeasure;
+        document.getElementById("Nest_QM").innerHTML = Milk[1].quantityMeasure;
+        document.getElementById("JA_QM").innerHTML = Milk[2].quantityMeasure;
+        document.getElementById("Oetker_QA").innerHTML = Milk[0].dailyAmount;
+        document.getElementById("Nest_QA").innerHTML = Milk[1].dailyAmount;
+        document.getElementById("JA_QA").innerHTML = Milk[2].dailyAmount;
+        document.getElementById("Oetker_price").innerHTML = Milk[0].price;
+        document.getElementById("Nest_price").innerHTML = Milk[1].price;
+        document.getElementById("JA_pr").innerHTML = Milk[2].price;
+        document.getElementById("Oetker_DC").innerHTML = Milk[0].weeklyConsumption();
+        document.getElementById("Nest_DC").innerHTML = Milk[1].weeklyConsumption();
+        document.getElementById("JA_DC").innerHTML = Milk[2].weeklyConsumption();
+        document.getElementById("Oetker_Con").innerHTML = Milk[0]. monthlyPrice();
+        document.getElementById("Nest_Con").innerHTML = Milk[1]. monthlyPrice();
+        document.getElementById("JA_Con").innerHTML = Milk[1]. monthlyPrice();
+
+        
+        
+        
+        
+        
+        console.log(Milk)  
+
+       
+      }
+    </script>
+
+
+  </body>
+</html>
